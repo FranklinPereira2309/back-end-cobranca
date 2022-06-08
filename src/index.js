@@ -5,17 +5,8 @@ const routes = require('./routes');
 
 const app = express();
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", {
-        "origin": "*",
-        "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-        "preflightContinue": false,
-        "optionsSuccessStatus": 204
-    });
-    app.use(cors());
-    next();
-});
 
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
